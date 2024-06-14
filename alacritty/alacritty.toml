@@ -1,0 +1,12 @@
+[shell]
+program = "/opt/homebrew/bin/fish"
+
+# Window settings
+[window]
+decorations = "full"
+opacity = 0.8
+
+# Font settings
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+size = 16.0
