@@ -1,5 +1,3 @@
-starship init fish | source
-
 set fish_greeting ""
 
 set -gx TERM xterm-256color
@@ -24,13 +22,8 @@ set -gx EDITOR nvim
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
+set -gx PATH /opt/homebrew/bin $PATH
 
-# NodeJS
-set -gx PATH node_modules/.bin $PATH
-
-# Go
-set -g GOPATH $HOME/go
-set -gx PATH $GOPATH/bin $PATH
 
 source (dirname (status --current-filename))/config-osx.fish
 
