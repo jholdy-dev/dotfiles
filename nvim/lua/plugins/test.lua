@@ -4,6 +4,8 @@ return {
     dependencies = {
       "haydenmeade/neotest-jest",
       "marilari88/neotest-vitest",
+      "olimorris/neotest-rspec",
+      "jfpedroza/neotest-elixir",
     },
     keys = {
       {
@@ -12,6 +14,13 @@ return {
           require("neotest").run.run_last()
         end,
         desc = "Run Last Test",
+      },
+      {
+        "<leader>tL",
+        function()
+          require("neotest").run.run_last({ strategy = "dap" })
+        end,
+        desc = "Debug Last Test",
       },
       {
         "<leader>tw",
@@ -32,6 +41,18 @@ return {
         })
       )
       table.insert(opts.adapters, require("neotest-vitest"))
+      table.insert(
+        opts.adapters,
+        require("neotest-rspec")({
+          rspec_cmd = function()
+            return vim.tbl_flatten({
+              "bundle",
+              "exec",
+              "rspec",
+            })
+          end,
+        })
+      )
     end,
   },
 }
